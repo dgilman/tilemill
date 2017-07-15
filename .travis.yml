@@ -36,4 +36,4 @@ before_script:
 
 script:
  - npm test
- - [[ "$TRAVIS_OS_NAME" == "osx" ]]; then cd platforms/osx; make; fi
+ - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then cd platforms/osx; make; fi
