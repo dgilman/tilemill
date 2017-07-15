@@ -8,6 +8,7 @@ node_js:
 matrix:
   include:
     - os: linux
+      dist: trusty
       sudo: false
       addons:
         postgresql: "9.5"
@@ -19,6 +20,7 @@ matrix:
            - libwebkit-dev
     - os: osx
       osx_image: xcode7.3
+      services: postgresql
 
 before_install:
  - createdb template_postgis
