@@ -10,7 +10,7 @@ matrix:
     - os: linux
       sudo: false
       addons:
-        postgresql: "9.3"
+        postgresql: "9.5"
         apt:
           sources:
            - ubuntu-toolchain-r-test
@@ -19,9 +19,6 @@ matrix:
            - libwebkit-dev
     - os: osx
       osx_image: xcode7.3
-      before_install:
-        - brew tap petere/postgresql
-        - brew install postgresql@9.3 && brew link -f postgresql@9.3
 
 before_install:
  - createdb template_postgis
