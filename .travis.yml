@@ -17,6 +17,11 @@ matrix:
           packages:
            - libstdc++6 # upgrade libstdc++ on linux to support C++11
            - libwebkit-dev
+    - os: osx
+      osx_image: xcode7.3
+      before_install:
+        - brew tap petere/postgresql
+        - brew install postgresql@9.3 && brew link -f postgresql@9.3
 
 before_install:
  - createdb template_postgis
