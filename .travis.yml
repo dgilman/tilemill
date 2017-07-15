@@ -23,7 +23,7 @@ matrix:
       osx_image: xcode7.3
 
 before_install:
- - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then pg_ctl -D /usr/local/var/postgres start; fi
+ - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then pg_ctl -w -s -D /usr/local/var/postgres start; fi
  - createdb template_postgis
  - psql -c "CREATE EXTENSION postgis" template_postgis
 
@@ -36,3 +36,4 @@ before_script:
 
 script:
  - npm test
+ - [[ "$TRAVIS_OS_NAME" == "osx" ]]; then cd platforms/osx; make; fi
