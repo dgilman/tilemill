@@ -23,8 +23,8 @@ matrix:
            - devscripts
            - cdbs
            - fakeroot
-           - libmapnik
-           - libmapnik-dev
+           - libmapnik2.2
+           - libmapnik2-dev
            - protobuf-compiler
            - libprotoc-dev
            - libprotobuf-lite8
