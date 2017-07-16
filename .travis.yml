@@ -19,6 +19,10 @@ matrix:
            - libstdc++6 # upgrade libstdc++ on linux to support C++11
            - libwebkit-dev
            - postgresql-9.5-postgis-2.3
+# packaging only
+           - debhelper
+           - devscripts
+           - cdbs
 #    - os: osx
 #      osx_image: xcode7.3
 

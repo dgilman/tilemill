@@ -44,7 +44,7 @@ fi
 
 mkdir "$CWD/$DIST"
 cd "$CWD/$DIST"
-tar zxvf "$CWD/orig/$PROJECT-$TAG.tar.gz"
+tar zxf "$CWD/orig/$PROJECT-$TAG.tar.gz"
 cp "$CWD/orig/$PROJECT-$TAG.tar.gz" "$CWD/$DIST/$PROJECT-$TAG.tar.gz"
 cp "$CWD/orig/$PROJECT-$TAG.tar.gz" "$CWD/$DIST/${PROJECT}_${TAG}.orig.tar.gz"
 cp -r "$CWD/debian" "$CWD/$DIST/$PROJECT-$TAG"
