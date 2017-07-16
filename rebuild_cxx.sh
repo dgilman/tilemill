@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 echo 'rebuilding node cxx modules'
+nvm use 0.10
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd ${CURRENT_DIR}
 echo "starting work in ${CURRENT_DIR}"
