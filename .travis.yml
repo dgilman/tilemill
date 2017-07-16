@@ -23,6 +23,7 @@ matrix:
            - debhelper
            - devscripts
            - cdbs
+           - fakeroot
 #    - os: osx
 #      osx_image: xcode7.3
 
