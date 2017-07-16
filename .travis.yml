@@ -37,3 +37,5 @@ before_script:
 script:
  - npm test
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then cd platforms/osx; make; fi
+ - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cd platforms/ubuntu; ./package; fi
+ - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ls -alh platforms/ubuntu/trusty ; fi

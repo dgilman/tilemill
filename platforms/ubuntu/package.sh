@@ -1,14 +1,8 @@
 #!/usr/bin/env sh
 
-while getopts ":p" opt; do
-  case $opt in
-    p ) PPA="mapbox" ;;
-  esac
-done
+set -e
 
 PROJECT="tilemill"
-USER="developmentseed"
-: ${PPA:="mapbox-dev"}
 
 CWD=`pwd`
 VERSION=`grep -m1 "$PROJECT ([a-z0-9~.-]*)" debian/changelog | sed "s/$PROJECT (\([a-z0-9~.-]*\)).*/\1/g"`
@@ -24,18 +18,6 @@ if [ ! -f "$CWD/../../package.json" ]; then
   echo "package.sh must be run from the platforms/ubuntu directory."
   exit
 fi
-
-while true
-do
-  echo -n "Build $PROJECT-$TAG for $DIST and upload to $PPA (y/n)? "
-  read CONFIRM
-  if [ $CONFIRM = "y" ]; then
-    break
-  elif [ $CONFIRM = "n" ]; then
-    echo "Aborting."
-    exit
-  fi
-done
 
 if [ ! -f "$CWD/orig/$PROJECT-$TAG.tar.gz" ]; then
   mkdir "$CWD/orig"
@@ -68,7 +50,4 @@ cp "$CWD/orig/$PROJECT-$TAG.tar.gz" "$CWD/$DIST/${PROJECT}_${TAG}.orig.tar.gz"
 cp -r "$CWD/debian" "$CWD/$DIST/$PROJECT-$TAG"
 cd "$CWD/$DIST/$PROJECT-$TAG/debian"
 
-debuild -inode_modules\|.git\|.png\|.ttf -S -sa &&
-cd "$CWD/$DIST" &&
-dput "ppa:$USER/$PPA" "${PROJECT}_${VERSION}_source.changes"
-
+debuild -inode_modules\|.git\|.png\|.ttf -S -sa
