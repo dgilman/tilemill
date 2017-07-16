@@ -50,4 +50,4 @@ cp "$CWD/orig/$PROJECT-$TAG.tar.gz" "$CWD/$DIST/${PROJECT}_${TAG}.orig.tar.gz"
 cp -r "$CWD/debian" "$CWD/$DIST/$PROJECT-$TAG"
 cd "$CWD/$DIST/$PROJECT-$TAG/debian"
 
-debuild -inode_modules\|.git\|.png\|.ttf -S -sa
+debuild -inode_modules\|.git\|.png\|.ttf -i -us -uc -b
