@@ -6,8 +6,8 @@ Uploaders: Dane Springmeyer <dane.springmeyer@gmail.com>
 Build-Depends:
  cdbs (>=0.4.42),
  debhelper (>= 7),
- libmapnik (>=2.3.0),
- libmapnik-dev (>=2.3.0),
+ libmapnik2.2 (>=2.3.0),
+ libmapnik2-dev (>=2.3.0),
  protobuf-compiler,
  libprotoc-dev,
  libprotobuf-lite7 | libprotobuf-lite8,
